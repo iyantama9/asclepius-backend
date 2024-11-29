@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const predictionRoutes = require('./routes/predictionRoutes');
 const historyRoutes = require('./routes/historyRoutes');
@@ -10,7 +11,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/predict', predictionRoutes);
+app.use(predictionRoutes);
 app.use('/predict', historyRoutes);
 
 app.use(errorHandler);

@@ -1,4 +1,5 @@
 const tf = require('@tensorflow/tfjs-node');
+const ValidationError = require('../errors/ValidationError');
 
 async function classifyImage(model, imageData) {
     try {
