@@ -1,6 +1,6 @@
-const classifyImage = require('../utils/classifyImage'); // Pastikan ini benar
+const crypto = require('crypto');
+const classifyImage = require('../utils/classifyImage');
 const { savePredictionData } = require('../database/firestore');
-const ValidationError = require('../errors/ValidationError');
 
 async function predict(req, res, next) {
     try {
@@ -26,11 +26,7 @@ async function predict(req, res, next) {
             data: predictionData,
         });
     } catch (error) {
-        if (error instanceof ValidationError) {
-            next(error); 
-        } else {
-            next(new ValidationError('Terjadi kesalahan dalam melakukan prediksi'));
-        }
+        next(error);
     }
 }
 
