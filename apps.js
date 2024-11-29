@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const predictionRoutes = require('./routes/predictionRoutes');
+const cors = require('cors');
 const historyRoutes = require('./routes/historyRoutes');
 const errorHandler = require('./middleware/errorHandler');
 const initializeModel = require('./config/tfModel');
@@ -8,13 +9,7 @@ const initializeModel = require('./config/tfModel');
 const app = express();
 const port = process.env.PORT || 8080;
 
-const corsOptions = {
-  origin: 'https://submissionmlgc-whilyanpratama.et.r.appspot.com',  
-  methods: ['GET', 'POST'],  
-  allowedHeaders: ['Content-Type', 'Authorization'], 
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
