@@ -8,6 +8,14 @@ const initializeModel = require('./config/tfModel');
 const app = express();
 const port = process.env.PORT || 8080;
 
+const corsOptions = {
+  origin: 'https://submissionmlgc-whilyanpratama.et.r.appspot.com',  
+  methods: ['GET', 'POST'],  
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
