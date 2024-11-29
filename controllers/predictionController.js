@@ -33,3 +33,5 @@ async function predict(req, res, next) {
         }
     }
 }
+
+module.exports = { predict };
