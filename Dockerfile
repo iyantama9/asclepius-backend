@@ -10,7 +10,7 @@ RUN npm install
 COPY . .
 
 ENV PORT=8080
-ENV MODEL_URL=https://storage.googleapis.com/asclepius-bucket/asclepius-model/model.json
+ENV MODEL_URL=URL_FOLDER_ATAU_FILE_BUCKET_ELU
 
 EXPOSE 8080
 
